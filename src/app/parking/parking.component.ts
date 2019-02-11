@@ -1,7 +1,12 @@
+
 import { ParkingModel } from './../model/parking.model';
 import { Component, OnInit } from '@angular/core';
 
 import { ParkingService } from './parking.service';
+import { VehicleModel } from '../model/vehicle.model';
+import Swal from 'sweetalert2';
+
+
 @Component({
   selector: 'app-parking',
   templateUrl: './parking.component.html',
@@ -12,7 +17,12 @@ export class ParkingComponent implements OnInit {
 
   private listVehicle: Array<ParkingModel>;
 
-  constructor(private parkingService: ParkingService) { }
+  private vehicle: VehicleModel;
+
+  constructor(private parkingService: ParkingService) {
+
+    this.vehicle = new VehicleModel();
+   }
 
   ngOnInit() {
 
@@ -20,6 +30,10 @@ export class ParkingComponent implements OnInit {
 
   }
 
+  /**
+   * Jefry Londoño
+   * Carga el listado de vehiculos estacionados
+   */
   private loadParking(): void{
 
     this.parkingService.getListVehicle().subscribe(res =>{
@@ -30,10 +44,29 @@ export class ParkingComponent implements OnInit {
 
       }
 
-
-
     });
 
+  }
+
+  private saveParking():void{
+
+    this.parkingService.saveParking(this.vehicle).subscribe(res => {
+
+      this.loadParking();
+
+
+    }, error =>{
+
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: ''+error.error.description,
+
+      })
+     
+
+    });
+    
   }
 
 }

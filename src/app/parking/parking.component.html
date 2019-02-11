@@ -11,16 +11,16 @@
               <!-- <div class="col-sm-12"> -->
                   <div class="form-group">
                       <label for="licensePlate">Vehículo <small>(carro/moto)</small>:</label>
-                      <input type="text" class="form-control" id="licensePlate" placeholder="Placa del Vehículo" name="licensePlate">
+                      <input type="text" class="form-control" id="licensePlate" [(ngModel)]="vehicle.licenseDTO" placeholder="Placa del Vehículo" name="licensePlate" required>
                     </div>
               <!-- </div> -->
               
 
                 <div class="form-group">
                     <label for="cilindraje">Cilindraje:</label>
-                    <input type="text" class="form-control" id="cilindraje" placeholder="Cilindraje" name="cilindraje">
+                    <input type="text" class="form-control" id="cilindraje" [(ngModel)]="vehicle.cylinderDTO" placeholder="Cilindraje" name="cilindraje">
                   </div>
-                  <button type="button" class="btn btn-primary">Guardar</button>
+                  <button type="button" (click)="saveParking()" class="btn btn-primary">Guardar</button>
 
           </div>
           <div class="col-sm-6">
@@ -46,7 +46,7 @@
                     <th >{{i + 1}}</th>
                     <td>{{item.vehicleDTO.licenseDTO}}</td>
                     <td>{{item.vehicleDTO.typeVehicleDTO == 1 ? 'Moto' : 'Carro'}}</td>
-                    <td>{{item.dateCheckInDTO  | date:'yyyy-MM-dd'}}</td>
+                    <td>{{item.dateCheckInDTO  | date:'yyyy-MM-dd' + ' ' +item.hourCheckInDTO}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -55,10 +55,6 @@
       </div>
 
     </div>
-    
-    
-
-   
   </form>
 </div>
 
