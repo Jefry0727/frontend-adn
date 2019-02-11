@@ -1,3 +1,4 @@
+import { ParkingModel } from './../model/parking.model';
 import { Component, OnInit } from '@angular/core';
 
 import { ParkingService } from './parking.service';
@@ -9,9 +10,30 @@ import { ParkingService } from './parking.service';
 })
 export class ParkingComponent implements OnInit {
 
+  private listVehicle: Array<ParkingModel>;
+
   constructor(private parkingService: ParkingService) { }
 
   ngOnInit() {
+
+    this.loadParking();
+
+  }
+
+  private loadParking(): void{
+
+    this.parkingService.getListVehicle().subscribe(res =>{
+
+      if(res.message == "200 OK"){
+
+        this.listVehicle = res.list;
+
+      }
+
+
+
+    });
+
   }
 
 }

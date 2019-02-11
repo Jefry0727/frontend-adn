@@ -29,6 +29,28 @@
 
           </div>
         </div>
+        <hr>
+        <div style="padding-top: 2%;" class="row">
+          <h1>Vehículos Estacionados</h1>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Tipo Vehículo</th>
+                    <th scope="col">Fecha Ingreso</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listVehicle; let i = index">
+                    <th >{{i + 1}}</th>
+                    <td>{{item.vehicleDTO.licenseDTO}}</td>
+                    <td>{{item.vehicleDTO.typeVehicleDTO == 1 ? 'Moto' : 'Carro'}}</td>
+                    <td>{{item.dateCheckInDTO  | date:'yyyy-MM-dd'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
           
       </div>
 
