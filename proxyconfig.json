@@ -1,0 +1,9 @@
+{
+    "/prod": {
+      "target": "http://app.docm.co",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+
+  

@@ -1,60 +1,117 @@
-<div style="padding-top: 2%;"  class="container">
- 
-  
+<div style="padding-top: 2%;" class="container">
+
+
   <form action="">
 
     <div class="row">
       <div class="col-sm-12">
         <div class="row">
+          <div class="col-sm-12">
+              <label for="">TRM: $ </label>
+              <label for="">{{trm}}</label>
+           
+          </div>
+        </div>
+        <div class="row">
           <div class="col-sm-6">
-              <h1>Estacionamiento</h1>
-              <!-- <div class="col-sm-12"> -->
-                  <div class="form-group">
-                      <label for="licensePlate">Vehículo <small>(carro/moto)</small>:</label>
-                      <input type="text" class="form-control" id="licensePlate" [(ngModel)]="vehicle.licenseDTO" placeholder="Placa del Vehículo" name="licensePlate" required>
-                    </div>
-              <!-- </div> -->
-              
+            <h2>Estacionamiento</h2>
+            <!-- <div class="col-sm-12"> -->
+            <div class="form-group">
+              <label for="licensePlate">Vehículo <small>(carro/moto)</small>:</label>
+              <input type="text" class="form-control" id="licensePlate" [(ngModel)]="vehicle.licenseDTO"
+                placeholder="Placa del Vehículo" name="licensePlate" required>
+            </div>
+            <!-- </div> -->
 
-                <div class="form-group">
-                    <label for="cilindraje">Cilindraje:</label>
-                    <input type="text" class="form-control" id="cilindraje" [(ngModel)]="vehicle.cylinderDTO" placeholder="Cilindraje" name="cilindraje">
-                  </div>
-                  <button type="button" (click)="saveParking()" class="btn btn-primary">Guardar</button>
+
+            <div class="form-group">
+              <label for="cilindraje">Cilindraje:</label>
+              <input type="text" class="form-control" id="cilindraje" [(ngModel)]="vehicle.cylinderDTO"
+                placeholder="Cilindraje" name="cilindraje">
+            </div>
+            <button type="button" id="saveParking" (click)="saveParking()" class="btn btn-primary">Guardar</button>
 
           </div>
           <div class="col-sm-6">
+            <h2>Salida Estacionamiento</h2>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="licensePlatePayment">Vehículo <small>(carro/moto)</small>:</label>
+                  <input type="text" class="form-control" id="licensePlatePayment" [(ngModel)]="vehiclePayment.licenseDTO"
+                    placeholder="Placa del Vehículo" name="licensePlatePayment" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
 
-              
+                <button type="button" id="savePayment" (click)="savePayment()" style="margin-top: 1.9em;"
+                  class="btn btn-primary">Resgistrar Salida</button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="date-hour-checkIn">Fecha y Hora de ingreso:</label>
+                  <input type="text" class="form-control" id="date-hour-checkIn" value="{{payment.parkingDTO.dateCheckInDTO  | date:'yyyy-MM-dd' + ' ' +payment.parkingDTO.hourCheckInDTO}}" placeholder="Fecha y Hora de ingreso"
+                    name="date-hour-checkIn" readonly>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="date-hour-checkOut">Fecha y Hora de salida:</label>
+                  <input type="text" class="form-control" value="{{payment.parkingDTO.dateCheckOutDTO	| date:'yyyy-MM-dd' + ' ' +payment.parkingDTO.hourCheckOutDTO	}}" id="date-hour-checkOut" placeholder="Fecha y Hora de salida"
+                    name="date-hour-checkOut" readonly>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="timeinside">Catidad tiempo en Estacionamiento:</label>
+                  <input type="text" class="form-control" id="timeinside" [(ngModel)]="payment.timeInsideDTO" placeholder="Catidad tiempo"
+                    name="timeinside" readonly>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="totalPrice">Total a Pagar:</label>
+                  <input type="text" class="form-control" value="{{payment.priceDTO | currency}}" id="totalPrice" placeholder="Total a Pagar"
+                    name="totalPrice" readonly>
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>
+        
         <hr>
+        
         <div style="padding-top: 2%;" class="row">
           <h1>Vehículos Estacionados</h1>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Placa</th>
-                    <th scope="col">Tipo Vehículo</th>
-                    <th scope="col">Fecha Ingreso</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of listVehicle; let i = index">
-                    <th >{{i + 1}}</th>
-                    <td>{{item.vehicleDTO.licenseDTO}}</td>
-                    <td>{{item.vehicleDTO.typeVehicleDTO == 1 ? 'Moto' : 'Carro'}}</td>
-                    <td>{{item.dateCheckInDTO  | date:'yyyy-MM-dd' + ' ' +item.hourCheckInDTO}}</td>
-                  </tr>
-                </tbody>
-              </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Tipo Vehículo</th>
+                <th scope="col">Fecha Ingreso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listVehicle; let i = index">
+                <th>{{i + 1}}</th>
+                <td>{{item.vehicleDTO.licenseDTO}}</td>
+                <td>{{item.vehicleDTO.typeVehicleDTO == 1 ? 'Moto' : 'Carro'}}</td>
+                <td>{{item.dateCheckInDTO  | date:'yyyy-MM-dd' + ' ' +item.hourCheckInDTO}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-          
+
       </div>
 
     </div>
   </form>
 </div>
-

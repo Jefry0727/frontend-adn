@@ -1,5 +1,7 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, by, element } from 'protractor';
+// import { element } from '@angular/core/src/render3';
+
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,8 +12,36 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to estacionamiento-adn!');
+    browser.pause();
+    expect(page.getTitleText()).toEqual('Estacionamiento');
+ 
   });
+
+  // describe('Guardado de Vehiculo', () => {
+
+   
+
+  // });
+
+  it('Guardado de vehiculo en el estacionamiento', () => {
+    page.navigateTo();
+    browser.pause();
+
+    element(by.id('licensePlate')).sendKeys('HNF88E');
+    element(by.id('cilindraje')).sendKeys('650');
+    element(by.id('saveParking')).click();
+
+  });
+
+  it('Buscar Vehiculo en el Estacionamiento y generar El pago', () => {
+    page.navigateTo();
+    browser.pause();
+
+    element(by.id('licensePlatePayment')).sendKeys('HNF88E');
+    element(by.id('savePayment')).click();
+
+  });
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
