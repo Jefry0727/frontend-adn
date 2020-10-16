@@ -15,5 +15,6 @@ En una consola y sobre la raíz de este proyecto ejecutar el comando `ng serve`.
 Al igual que en el punto anterior, se debe abrir una consola en la raíz de este proyecto y ejecutamos el comando  `ng e2e` [Protractor](http://www.protractortest.org/).
 
 ```
-## Nota
+_NOTA: Para realizar las pruebas automatizadas, es necesario tener la tabla pagos de la base de datos vacía_
 ```
+
