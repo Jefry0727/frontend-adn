@@ -1,27 +1,19 @@
-# PagoArrendamientoFront
+# Proyecto Back-End pago-arrendamiento
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+Este proyecto esta bajo las tecnologías de Java 11 con Spring boot y con una Arquitectura Hexagonal
 
-## Development server
+# Proyecto Front-End PagoArrendamientoFront
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7 y con la arquitectura propuesta por [Angular](https://angular.io/guide/styleguide#overall-structural-guidelines )
 
-## Code scaffolding
+## Iniciar el proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+En una consola y sobre la raíz de este proyecto ejecutar el comando `ng serve`. Para abrir la aplicación web usar el siguiente link: `http://localhost:4200/`. 
 
-## Build
+## Para ejecutar las pruebas end-to-end en Protractor
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Al igual que en el punto anterior, se debe abrir una consola en la raíz de este proyecto y ejecutamos el comando  `ng e2e` [Protractor](http://www.protractortest.org/).
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+## Nota
+```
