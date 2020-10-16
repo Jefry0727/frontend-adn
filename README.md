@@ -10,10 +10,7 @@ Este proyecto en el momento se deberá impotar a un IDE, preferiblemente en Ecli
 
 Como se mensiona anteriormente, se deberá tener el proyecto en el IDE y nos dirigimos a la capa dominio y allí ejecutamos JUnit Test, el cual se encargará de ejecutar los test, no es necesario eliminar los datos de la tabla pagos de la base de datos MySQL, dado que se cargaran en una base de datos en memoria, especificamente en H2
 
-
-
-
-
+#
 
 # Proyecto Front-End PagoArrendamientoFront
 
