@@ -20,7 +20,7 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 ## Iniciar el proyecto
 
-En una consola y sobre la raíz de este proyecto ejecutar el comando `ng serve`. Para abrir la aplicación web usar el siguiente link: `http://localhost:4200/`. 
+En una consola y sobre la raíz de este proyecto ejecutar el comando `npm install` para instalar todos las dependencias necesarias para el funcionamiento del proyecto y despues ejecutar `ng serve` que permitirá deplegar el proyecto. Para abrir la aplicación web usar el siguiente link: `http://localhost:4200/` en un navegador web. 
 
 ## Para ejecutar las pruebas end-to-end en Protractor
 
